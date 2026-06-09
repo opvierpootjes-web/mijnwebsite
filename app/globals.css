@@ -1,31 +1,14 @@
 @import "tailwindcss";
-
-/* ══════════════════════════════════════════════════════════════
-   STAP 1 — Jouw huisstijlkleuren
-   Vervang de waarden hieronder door jouw eigen hex-codes.
-   ══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700&family=Delicious+Handrawn&display=swap');
 
 @theme {
-  --color-primair:      #3b5633;   /* ← jouw hoofdkleur     */
-  --color-achtergrond:  #f8f5f0;   /* ← achtergrondkleur    */
-  --color-tekst:        #1a1a1a;   /* ← tekstkleur          */
-  --color-accent:       #d56119;   /* ← accentkleur         */
-  --color-wit:          #ffffff;
-
-  /* ── STAP 2 — Jouw lettertype ────────────────────────────── */
-  /* Optie A: Google Font
-     1. Ga naar fonts.google.com, zoek jouw font, kies "Get font" → "Get embed code"
-     2. Kopieer de @import-regel en plak hem hierboven
-     3. Pas de naam hieronder aan:
-  --font-hoofd: 'Lato', sans-serif;
-
-     Optie B: Eigen font (.otf / .ttf / .woff2)
-     1. Kopieer jouw fontbestand naar /public/fonts/
-     2. Voeg onderaan dit bestand een @font-face toe
-     3. Pas de naam hieronder aan:
-  --font-hoofd: 'JouwFont', serif;
-  */
-  --font-hoofd: Inter, system-ui, sans-serif;
+  --color-primair:     #b3dce6;
+  --color-achtergrond: #ffffff;
+  --color-tekst:       #1a1a1a;
+  --color-accent:      #b9a46e;
+  --color-wit:         #ffffff;
+  --font-hoofd:        'Montserrat', sans-serif;
+  --font-sierlijk:     'Delicious Handrawn', cursive;
 }
 
 /* ─── Basisstijlen ─────────────────────────────────────────── */
@@ -69,7 +52,9 @@ body {
    Als portret.jpg ontbreekt, valt hij terug op --color-primair.
    ─────────────────────────────────────────────────────────── */
 .hero-section {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 0;
   height: 480px;
   overflow: hidden;
   background-attachment: fixed;
@@ -105,6 +90,10 @@ body {
   40%       { transform: rotate(3deg) scale(1.03); }
   50%       { transform: rotate(0deg) scale(1); }
 }
+@keyframes golf {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
 .hero-btn {
   display: inline-block;
   align-self: flex-start;
@@ -117,9 +106,8 @@ body {
   font-weight: 600;
   border-radius: 999px;
   text-decoration: none;
-  animation: speels 3s ease-in-out 1.5s infinite;
 }
-.hero-btn:hover { opacity: 0.85; }
+.hero-btn:hover { animation: golf 1.4s ease-in-out infinite; background: #7f8a8a; color: #b9a46e; }
 
 /* ─── Twee-kolom layout ─────────────────────────────────────
    Gebruik: <div className="two-col"> of <div className="two-col flip">
@@ -129,12 +117,16 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: stretch;
 }
 .two-col.flip .col-image { order: -1; }
+.col-image {
+  display: flex;
+}
 .col-image img {
   width: 100%;
-  height: 380px;
+  height: 100%;
+  min-height: 420px;
   object-fit: cover;
   object-position: center top;
   border-radius: 1.25rem;
@@ -144,5 +136,5 @@ body {
 @media (max-width: 768px) {
   .two-col { grid-template-columns: 1fr; gap: 1.75rem; }
   .two-col.flip .col-image { order: 0; }
-  .col-image img { height: 260px; }
+  .col-image img { height: 300px; min-height: unset; }
 }

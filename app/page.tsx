@@ -10,13 +10,13 @@ export default function HomePage() {
     <>
       {/* Hero — portret.jpg uit /public/ als achtergrond.
           Ontbreekt de foto? Dan valt de achtergrond terug op --color-primair. */}
-      <div className="hero-section" style={{ backgroundImage: "url('/fotos/portret.jpg')" }}>
+      <div className="hero-section" style={{ backgroundImage: "url('/fotos/puppy.jpg')", backgroundPosition: 'center center', backgroundSize: 'cover', height: '80vh' }}>
         <div className="hero-overlay">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl leading-tight">
-            [Jouw krachtige headline]
+            Zelf leren begrijpen om betere voedingskeuzes te maken voor je hond?
           </h1>
           <p className="text-white/80 max-w-xl text-lg leading-relaxed mb-2">
-            [Ondertitel: voor wie ben je er en wat bied je aan?]
+            Mijn naam is Daniëlle van Egmond en ik ben orthomoleculair en integraal voedingstherapeut voor honden. Ik help jou om zelf keuzes te maken die passen bij jouw hond.
           </p>
           <a href="/aanbod" className="hero-btn">
             Bekijk mijn aanbod →
@@ -24,14 +24,14 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Introductie */}
-      <section className="max-w-3xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-2xl font-bold text-primair mb-4 reveal">[Introductietitel]</h2>
-        <p className="text-tekst/80 leading-relaxed reveal">
-          [Vertel hier kort wat je doet, voor wie en waarom jij de juiste persoon bent.
-          Houd het warm en persoonlijk.]
-        </p>
-      </section>
+      <div className="relative z-10 bg-achtergrond">
+        {/* Introductie */}
+        <section className="max-w-5xl mx-auto px-6 py-20 text-center">
+          <p className="text-accent leading-relaxed reveal" style={{ fontFamily: 'var(--font-sierlijk)', fontSize: '18px' }}>
+            Ik geloof dat optimale voeding een investering is in de levenskracht van jouw hond.<br />Maar voeding werkt pas echt optimaal als het lichaam van je hond in balans is en de voedingsstoffen goed kan verwerken.
+          </p>
+        </section>
+      </div>
 
       <ScrollReveal singles={['.reveal']} />
     </>

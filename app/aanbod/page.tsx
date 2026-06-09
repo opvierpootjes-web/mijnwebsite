@@ -5,9 +5,9 @@ export const metadata: Metadata = { title: 'Aanbod' };
 export default function AanbodPage() {
   return (
     <section className="max-w-4xl mx-auto px-6 py-20">
-      <h1 className="text-3xl font-bold text-primair mb-4">Mijn aanbod</h1>
+      <h1 className="text-3xl font-bold mb-4" style={{ color: '#b9a46e' }}>Mijn aanbod</h1>
       <p className="text-tekst/80 mb-12">
-        [Korte introductie op jouw aanbod]
+        Vind hier korte cursussen, gidsen, e-books en tools die jouw kennis vergroten over voeding en integrale keuzes in het belang van jouw hond.
       </p>
       <div className="grid gap-8 sm:grid-cols-2">
         {/* Product/dienst 1 */}

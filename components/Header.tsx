@@ -21,12 +21,12 @@ export default function Header() {
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* Logo / naam */}
-        <Link href="/" className="font-bold text-primair text-lg" onClick={() => setOpen(false)}>
-          [Jouw naam]
+        <Link href="/" className="font-bold text-lg" style={{ color: '#b9a46e' }} onClick={() => setOpen(false)}>
+          Op Vier Pootjes
         </Link>
 
         {/* Navigatie — desktop */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
           {navLinks.map(link => (
             <Link key={link.href} href={link.href}
               className="text-tekst hover:text-primair transition-colors">
